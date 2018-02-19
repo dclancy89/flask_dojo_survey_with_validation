@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div class="errors">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p>{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	</div>
+	<div class="container">
+
+		<form action="/result" method="post">
+			<label>
+				Your Name: <input type="text" name="your_name" value="{{ session['name'] }}">
+			</label>
+
+			<label>
+				 Dojo Location: 
+				 <select name="dojo_location">
+				 	<option value="Chicago">Chicago</option>
+				 	<option value="Seattle">Seattle</option>
+				 	<option value="Los Angeles">Los Angeles</option>
+				 	<option value="Dallas">Dallas</option>
+				 	<option value="Tulsa">Tulsa</option>
+				 	<option value="Washington DC">Washington DC</option>
+				 	<option value="Online">Online</option>
+				 </select>
+			</label>
+
+			<label>
+				Favorite Language:
+				 <select name="favorite_language">
+				 	<option value="JavaScript">JavaScript</option>
+				 	<option value="Python">Python</option>
+				 	<option value="C#/.NET">C#/.NET</option>
+				 	<option value="PHP">PHP</option>
+				 	<option value="Ruby">Ruby</option>
+				 	<option value="Java">Java</option>
+				 </select>
+			</label>
+			<label>
+				Comment (optional):
+				<textarea name="comment" value="{{ session['comment'] }}"></textarea>
+			</label>
+			<input type="submit" value="Submit" class="button">
+		</form>
+	</div>
+
+
+</body>
+</html>

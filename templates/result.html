@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="result">
+
+	<div class="container">
+		<p class="title">Submitted Info</p>
+		<p>Name: <span>{{ session['name'] }}</span></p>
+		<p>Dojo Location: <span>{{ session['location'] }}</span></p>
+		<p>Favorite Language: <span>{{ session['language'] }}</span></p>
+		<p>Comment: <span>{{ session['comment'] }}</span></p>
+		<form action="/go_back" method="post">
+			<input type="submit" value="Go Back" class="button">
+		</form>
+	</div>
+
+</body>
+</html>
