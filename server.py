@@ -15,18 +15,17 @@ def result():
 
 	if len(session['name']) > 0 and len(session['comment']) > 0 and len(session['comment']) <= 120:
 		return render_template('result.html')
-	elif len(session['name']) < 1 or len(session['comment']) < 1:
+	elif len(session['name']) < 1 or len(session['comment']) < 1 or len(session['comment']) > 120:
 		if len(session['name']) < 1:
 			flash("Name cannot be empty!")
 		if len(session['comment']) < 1:
 			flash("Comment cannot be empty!")
-		return redirect('/')
-	elif len(session['comment']) > 120:
-		flash("Comment must be less than 120 characters")
+		elif len(session['comment']) > 120:
+			flash("Comment must be less than 120 characters")
 		return redirect('/')
 
 
-@app.route('/go_back', methods=['post'])
+@app.route('/go_back')
 def go_back():
 	session.clear()
 	return redirect('/')

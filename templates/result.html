@@ -12,7 +12,7 @@
 		<p>Dojo Location: <span>{{ session['location'] }}</span></p>
 		<p>Favorite Language: <span>{{ session['language'] }}</span></p>
 		<p>Comment: <span>{{ session['comment'] }}</span></p>
-		<form action="/go_back" method="post">
+		<form action="/go_back" method="get">
 			<input type="submit" value="Go Back" class="button">
 		</form>
 	</div>
